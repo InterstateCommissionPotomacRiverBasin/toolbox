@@ -3,7 +3,7 @@
 #' @param x PARAM_DESCRIPTION
 #' @param standard.names Should column names be standardized?, Default: TRUE
 #' @param standard.char Should character column strings be standardized?, Default: TRUE
-#' @inheritParams replace_non_alphanumeric_char
+#' @inheritParams standard_names
 #' @return A standardized data frame.
 #' @details DETAILS
 #' @examples 
