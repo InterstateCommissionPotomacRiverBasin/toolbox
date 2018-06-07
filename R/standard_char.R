@@ -22,17 +22,19 @@
 
 standard_char <- function(x, remove.non.alphanumeric.char = TRUE, ...) {
   if (!is.data.frame(x)) stop("'x' must be a data frame or tibble")
-  final.df <- x %>%
     # All characters to lowercase and remove leading/trailing white space
-    dplyr::mutate_if(is.character, dplyr::funs(tolower(.) %>% 
-                                                 trimws() 
-    )) %>% 
+    final.df <- dplyr::mutate_if(x,
+                     is.character,
+                     dplyr::funs(trimws(tolower(.))))  
     # remove instances of more than one space
-    dplyr::mutate_if(is.character, dplyr::funs(gsub("[' ']{2,}", " ", .)))  
+    final.df <- dplyr::mutate_if(final.df,
+                                 is.character,
+                                 dplyr::funs(gsub("[' ']{2,}", " ", .)))  
   
   if (remove.non.alphanumeric.char == TRUE) {
-    final.df <- final.df %>% 
-      dplyr::mutate_if(is.character, dplyr::funs(replace_non_alphanumeric_char(., ...)))
+    final.df <- dplyr::mutate_if(final.df,
+                                 is.character,
+                                 dplyr::funs(replace_non_alphanumeric_char(., ...)))
 
   }
   

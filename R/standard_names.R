@@ -18,12 +18,9 @@
 standard_names <- function(x, ...) {
   if (!is.data.frame(x)) stop("'x' must be a data frame or tibble")
   
-  names(x) <- names(x) %>%
-    # to lowercase
-    tolower() %>% 
-    # remove leading/trailing white space
-    trimws() %>% 
-    replace_non_alphanumeric_char(...)
-  
+  names(x) <- tolower(names(x))
+  names(x) <- trimws(names(x))
+  names(x) <- replace_non_alphanumeric_char(x, ...)
+    
   return(x)
 }
