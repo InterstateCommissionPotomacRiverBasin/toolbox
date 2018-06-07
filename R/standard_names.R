@@ -20,7 +20,7 @@ standard_names <- function(x, ...) {
   
   names(x) <- tolower(names(x))
   names(x) <- trimws(names(x))
-  names(x) <- replace_non_alphanumeric_char(x, ...)
+  names(x) <- replace_non_alphanumeric_char(names(x), ...)
     
   return(x)
 }
