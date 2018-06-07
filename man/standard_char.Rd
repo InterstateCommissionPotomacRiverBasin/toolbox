@@ -4,12 +4,15 @@
 \alias{standard_char}
 \title{Standardize Character Column Strings}
 \usage{
-standard_char(x, remove.non.alphanumeric.char = TRUE, ...)
+standard_char(x, remove.non.alphanumeric.char = TRUE,
+  replacement.char = "_")
 }
 \arguments{
 \item{x}{A data frame or tibble.}
 
 \item{remove.non.alphanumeric.char}{If FALSE, all non-alphanumeric characters will be unaltered. If TRUE, all non-alphanumeric characters will be replaced by a specified character. Default: TRUE}
+
+\item{replacement.char}{The character(s) used to replace all of the non-alphanumeric characters., Default: '_'}
 }
 \value{
 A data fram with standardized character columns.
@@ -29,7 +32,4 @@ if(interactive()){
  standard_char(test.df, replacement.char = "+")
  }
 }
-}
-\seealso{
-\code{\link[dplyr]{mutate_if}},\code{\link[dplyr]{funs}}
 }

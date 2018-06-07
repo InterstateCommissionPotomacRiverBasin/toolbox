@@ -2,7 +2,7 @@
 #' @description Standardizes all character column strings by converting the strings to lowercase, removing white space, and removing all non-alphanumeric characters and replacing them with a specified character.
 #' @param x A data frame or tibble.
 #' @param remove.non.alphanumeric.char If FALSE, all non-alphanumeric characters will be unaltered. If TRUE, all non-alphanumeric characters will be replaced by a specified character. Default: TRUE
-#' @inheritParams replace_non_alphanumeric_char
+#' @param replacement.char The character(s) used to replace all of the non-alphanumeric characters., Default: '_'
 #' @return  A data fram with standardized character columns.
 #' @details DETAILS
 #' @examples 
@@ -18,7 +18,7 @@
 #' @export 
 #' @importFrom dplyr mutate_if funs
 
-standard_char <- function(x, remove.non.alphanumeric.char = TRUE, ...) {
+standard_char <- function(x, remove.non.alphanumeric.char = TRUE, replacement.char = "_") {
   if (!is.data.frame(x)) stop("'x' must be a data frame or tibble")
     # All characters to lowercase and remove leading/trailing white space
     final.df <- dplyr::mutate_if(x,
@@ -32,7 +32,7 @@ standard_char <- function(x, remove.non.alphanumeric.char = TRUE, ...) {
   if (remove.non.alphanumeric.char == TRUE) {
     final.df <- dplyr::mutate_if(final.df,
                                  is.character,
-                                 dplyr::funs(replace_non_alphanumeric_char(., ...)))
+                                 dplyr::funs(replace_non_alphanumeric_char(., replacement.char)))
 
   }
   
