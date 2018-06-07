@@ -4,10 +4,15 @@
 \alias{standard_names}
 \title{Standard Column Names}
 \usage{
-standard_names(x, ...)
+standard_names(x, remove.non.alphanumeric.char = TRUE,
+  replacement.char = "_")
 }
 \arguments{
 \item{x}{A data frame or tibble.}
+
+\item{remove.non.alphanumeric.char}{If FALSE, all non-alphanumeric characters will be unaltered. If TRUE, all non-alphanumeric characters will be replaced by a specified character. Default: TRUE}
+
+\item{replacement.char}{The character(s) used to replace all of the non-alphanumeric characters., Default: '_'}
 }
 \value{
 A data fram with standardized column names.
