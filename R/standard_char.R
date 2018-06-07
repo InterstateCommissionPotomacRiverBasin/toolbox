@@ -14,8 +14,6 @@
 #'  standard_char(test.df, replacement.char = "+")
 #'  }
 #' }
-#' @seealso 
-#'  \code{\link[dplyr]{mutate_if}},\code{\link[dplyr]{funs}}
 #' @rdname standard_char
 #' @export 
 #' @importFrom dplyr mutate_if funs
