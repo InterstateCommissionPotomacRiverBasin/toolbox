@@ -23,7 +23,7 @@ prep_df <- function(x, standard.names = TRUE, standard.char = TRUE, ...){
   final.df <- x
   if (standard.names == TRUE) final.df <- standard_names(final.df, ...)
   if (standard.char == TRUE) final.df <- standard_char(final.df, ...)
-  
+  final.df[final.df == ""] <- NA
   return(final.df)
 }
 
